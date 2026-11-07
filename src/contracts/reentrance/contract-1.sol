@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract Reentrance {
-    mapping(address => uint) public balances;
+    mapping(address => uint) private balances;
 
     function deposit() external payable {
         balances[msg.sender] += msg.value;
@@ -12,15 +12,8 @@ contract Reentrance {
         require(balances[msg.sender] >= _amount, "Insufficient balance");
         (bool ok, ) = msg.sender.call{value: _amount}("");
         require(ok, "Transfer failed");
-        unchecked {
-        balances[msg.sender] -= _amount;   // sin protección de underflow, como en 2016
-        }    
+        unchecked{
+        balances[msg.sender] -= _amount;  
+        }
     }
 }
-
-/**
- * @title Reentrance: A contract vulnerable to reentrancy attacks.
- * Users can deposit and withdraw Ether.
- * @dev The withdraw function is vulnerable to reentrancy attacks because it updates the balance after sending Ether so, in that moment the attacker can reenter the contract and drain funds.
-
- */

@@ -16,12 +16,13 @@ contract ReentranceTest is Test {
     function setUp() public {
         bank = new Reentrance();
 
-        vm.deal(victim1, 5 ether);
-        vm.prank(victim1);
+        vm.deal(victim1, 5 ether); // al address 0x1 se le asignan 5 ETH 
+        vm.prank(victim1); // la siguiente llamada se hace desde victim1
         bank.deposit{value: 5 ether}();
 
-        vm.deal(victim2, 5 ether);
-        vm.prank(victim2);
+        vm.deal(victim2, 5 ether); // al address 0x2 se le asignan 5 ETH
+        vm.prank(victim2); // la siguiente llamada se hace desde victim2
+        //en lugar de hacer bank.deposit se pue
         bank.deposit{value: 5 ether}();
     }
 

@@ -64,3 +64,35 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
+### Para compilar
+
+```shell
+forge build
+```
+
+### Para ejecutar los tests con trace
+
+```shell
+forge test -vvvv
+```
+
+### Extraer el runtime bytecode a binario (.bin) con jq
+
+jq -r '.deployedBytecode.object' out/contract-1.sol/Reentrance.json > Reentrance.bin
+jq -r '.deployedBytecode.object' out/attacker.sol/Attacker.json     > Attacker.bin
+
+### validar que tengan hex adentro
+
+head -c 80 Reentrance.bin ; echo
+head -c 80 Attacker.bin   ; echo
+
+### Decompilar a pseudo-codigo con heimdall-rs
+
+heimdall decompile Reentrance.bin -o ./heimdall-reentrance --include-sol --skip-resolving
+heimdall decompile Attacker.bin   -o ./heimdall-attacker   --include-sol --skip-resolving
+
+#### Para ver el pseudo-Solidity generado
+
+cat heimdall-reentrance/decompiled.sol
+cat heimdall-attacker/decompiled.sol
