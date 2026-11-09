@@ -30,6 +30,18 @@
 }
 
 @layer components {
+  .ether-background { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .ether-particle { position: absolute; top: 100%; height: auto; color: #a78bfa; opacity: 0; animation: ether-rise 26s linear infinite; will-change: transform, opacity; }
+  .landing { position: relative; display: grid; place-items: center; min-height: 100svh; padding: 32px 16px; overflow: hidden; background: radial-gradient(ellipse at 50% 46%, #7c3aed14, transparent 58%), #0b101b; }
+  .landing::before { content: ''; position: absolute; width: min(680px, 90vw); aspect-ratio: 1; border-radius: 50%; border: 1px solid #a78bfa0d; box-shadow: 0 0 120px #7c3aed08, 0 0 0 80px #a78bfa03; pointer-events: none; }
+  .landing-content { position: relative; display: flex; flex-direction: column; align-items: center; gap: 36px; text-align: center; }
+  .landing-title { margin: 0; color: #f8fafc; font-family: var(--font-display); font-size: clamp(32px, 8vw, 96px); font-weight: 700; line-height: 1.15; letter-spacing: .035em; }
+  .landing-title .landing-wordmark { color: #f8fafc; }
+  .landing-wordmark > span { color: #a78bfa; text-shadow: 0 0 40px #a78bfa33; }
+  .landing-ethereum { display: inline-block; width: .48em; height: .75em; margin-inline: .045em; vertical-align: -.015em; color: #a78bfa; filter: drop-shadow(0 0 14px #a78bfa33); }
+  .landing-button { display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 48px; padding: 12px 32px; border: 1px solid #c4b5fd; border-radius: 8px; background: #a78bfa; color: #101624; font-size: 15px; font-weight: 600; box-shadow: 0 0 24px #a78bfa26; }
+  .landing-button:hover { background: #c4b5fd; box-shadow: 0 0 32px #a78bfa4d; }
+  .landing-button-secondary, .landing-button-secondary:hover { border-color: #a78bfa66; background: #141a29; color: #d0bcff; box-shadow: none; }
   .page-container { width: 100%; max-width: 1440px; margin-inline: auto; padding-inline: 24px; }
   .nav-link { display: flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid transparent; border-radius: 8px; color: #94a3b8; font-size: 14px; font-weight: 500; }
   .nav-active { background: #581c872f; border-color: #a855f780; color: #d8b4fe; }
@@ -85,5 +97,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .ether-background { display: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+@keyframes ether-rise {
+  0% { transform: translate3d(0, 0, 0) rotate(-12deg); opacity: 0; }
+  12% { opacity: .28; }
+  80% { opacity: .22; }
+  100% { transform: translate3d(32px, calc(-100svh - 100px), 0) rotate(14deg); opacity: 0; }
 }
