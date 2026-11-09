@@ -12,12 +12,12 @@ export const demoChallenges = [
   {
     id: 'smart-contracts-intro', type: 'MODULE', visual: 'cube',
     title: 'Introducción a los Smart Contracts', difficulty: 'Nivel inicial',
-    metric: 'Módulo de ejemplo', detail: 'Gratis',
+    metric: '4 secciones', detail: 'Gratis',
   },
   {
     id: 'reentrancy', type: 'MACHINE', visual: 'bot',
     title: 'Reentrancy Vault', difficulty: 'Muy fácil', topic: 'Foundry / Anvil',
-    metric: '20 puntos', detail: 'Solidity 0.8.x',
+    metric: '6 secciones', detail: 'Solidity 0.8.x',
   },
 ]
 

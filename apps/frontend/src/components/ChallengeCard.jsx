@@ -42,7 +42,6 @@ export default function ChallengeCard({ challenge }) {
         </div>
         <div className="mt-4 flex items-start justify-between gap-3 border-t border-outline-variant/70 pt-3 font-mono text-xs">
           <span className="flex items-center gap-1.5 text-violet-light">{challenge.type === 'MODULE' ? <GraduationCap size={14} aria-hidden="true" /> : <span className={`status-dot ${challenge.difficulty === 'Intermedio' ? 'bg-amber-400' : 'bg-violet'}`} />}{challenge.metric}</span>
-          <span className="text-right text-muted">{challenge.detail}</span>
         </div>
       </div>
     </article>
