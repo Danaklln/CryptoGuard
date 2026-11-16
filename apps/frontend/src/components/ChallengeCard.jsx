@@ -37,7 +37,9 @@ export default function ChallengeCard({ challenge }) {
       </div>
       <div className="flex flex-1 flex-col justify-between p-4">
         <div>
-          <h3 id={`challenge-${challenge.id}`} className="text-base font-bold leading-snug text-white transition-colors group-hover:text-violet-light">{challenge.title}</h3>
+          <h3 id={`challenge-${challenge.id}`} className="text-base font-bold leading-snug text-white transition-colors group-hover:text-violet-light">
+            {challenge.href ? <a href={challenge.href} className="challenge-card-link">{challenge.title}</a> : challenge.title}
+          </h3>
           <p className="mt-1 flex flex-wrap items-center gap-1.5 text-xs text-muted"><span className={challenge.difficulty === 'Intermedio' ? 'text-amber-400' : challenge.visual !== 'cube' ? 'text-violet-light' : ''}>{challenge.difficulty}</span>{challenge.topic && <><span aria-hidden="true">•</span><span>{challenge.topic}</span></>}</p>
         </div>
         <div className="mt-4 flex items-start justify-between gap-3 border-t border-outline-variant/70 pt-3 font-mono text-xs">
