@@ -1,4 +1,5 @@
 import { reentrancy } from '../../../../labs/reentrancy/lesson.js'
+import { evmIntro } from '../../../../labs/evm-intro/lesson.js'
 
 // The demo user is local to this frontend.
 export const demoUser = {
@@ -8,8 +9,8 @@ export const demoUser = {
 export const demoChallenges = [
   {
     id: 'evm-intro', type: 'MODULE', visual: 'cube',
-    title: 'Introducción a EVM', difficulty: 'Nivel inicial',
-    metric: '8 secciones', detail: 'Gratis',
+    title: evmIntro.title, difficulty: 'Nivel inicial',
+    metric: `${evmIntro.sections.length} secciones`, href: '#evm-intro',
   },
   {
     id: 'smart-contracts-intro', type: 'MODULE', visual: 'cube',

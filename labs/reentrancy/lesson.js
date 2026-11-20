@@ -3,6 +3,7 @@ import attacker from '../../src/contracts/reentrance/attacker.sol?raw'
 import test from '../../test/Reentrance.t.sol?raw'
 
 export const reentrancy = {
+  id: 'reentrancy',
   title: 'Reentrancy Vault',
   description: 'Analizá cómo una llamada externa permite retirar más ETH del que se depositó y aprendé a corregir el orden de las operaciones.',
   files: {
