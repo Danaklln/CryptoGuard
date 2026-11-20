@@ -151,8 +151,12 @@
 }
 
 @media (min-width: 900px) {
+  .lab-page { max-width: 1200px; }
+  .lab-layout { grid-template: 'lesson sections' / minmax(0, 1fr) 256px; }
+  .lab-lesson { grid-area: lesson; }
+  .lab-sections { grid-area: sections; }
   .lab-section-select { display: none; }
-  .lab-section-list { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+  .lab-section-list { display: grid; gap: 6px; }
 }
 
 @media (max-width: 639px) {
